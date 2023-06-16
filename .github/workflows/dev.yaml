@@ -1,0 +1,25 @@
+name: dev
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    name: Build
+    steps:
+      - name: Pre-build
+        run: echo ${{ secrets.LOCAL_PROPERTIES }} >> local.properties
+      - name: Build
+        uses: sparkfabrik/android-build-action@v1.5.0
+        with:
+          project-path: .
+          output-path: ./Xperia-Mod-${{ github.sha }}.apk
+      - name: Upload
+        uses: actions/upload-artifact@v3
+        with:
+          name: DebugAPK
+          path: ./Xperia-Mod-${{ github.sha }}.apk
+          

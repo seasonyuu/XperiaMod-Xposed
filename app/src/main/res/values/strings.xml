@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Xperia Mod</string>
+    <string name="app_description">Xperia UI 模块</string>
+    <string-array name="module_scope">
+        <item>com.sonymobile.displaybooster</item>
+    </string-array>
+    <string name="enable_xposed_settings">目前仅支持解锁帧率限制，暂无设置项。请在 Xposed/LSPosed 管理器中启用此模块。</string>
+    <string name="nothing_here">暂无设置</string>
+</resources>
