@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - dev
+      - feature/*
 
 jobs:
   build:
@@ -12,6 +13,10 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Print tag
+        run: git describe --tags
       - uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
@@ -20,12 +25,12 @@ jobs:
         with:
           gradle-home-cache-cleanup: true
       - name: Pre-build
-        run: echo ${{ secrets.LOCAL_PROPERTIES }} >> local.properties
+        run: echo "${{ secrets.LOCAL_PROPERTIES }}" >> ./local.properties
       - name: Build debug APK
         run: ./gradlew assembleDebug
       - name: Upload
         uses: actions/upload-artifact@v3
         with:
           name: Debug APK
-          path: build/outputs/apk/debug/*.apk
+          path: app/build/outputs/apk/debug/*.apk
           
