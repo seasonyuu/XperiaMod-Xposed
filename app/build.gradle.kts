@@ -1,4 +1,5 @@
 import java.util.Properties
+import org.apache.commons.io.output.ByteArrayOutputStream
 
 @Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
@@ -7,6 +8,23 @@ plugins {
     alias(libs.plugins.ksp)
 }
 
+fun git(vararg args: String): String {
+    val output = ByteArrayOutputStream()
+    exec {
+        commandLine = args.asList().let { argsList ->
+            arrayListOf("git").also { it.addAll(argsList) }
+        }
+        standardOutput = output
+    }
+    return output.toString().trim()
+}
+
+val gitHash = git("rev-parse", "--short", "HEAD")
+val gitCommits = git("rev-list", "--count", "HEAD")
+val gitDescribe = git("describe", "--tags")
+val version = gitDescribe.ifEmpty {
+    gitHash
+}
 
 android {
     namespace = "me.seasonyuu.xperiatools"
@@ -16,8 +34,8 @@ android {
         applicationId = "me.seasonyuu.xperiatools"
         minSdk = 24
         targetSdk = 33
-        versionCode = 1
-        versionName = "0.1.0"
+        versionCode = if (gitCommits.isNotEmpty()) gitCommits.toInt() else 1
+        versionName = version
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -69,6 +87,10 @@ android {
     }
 }
 
+configurations.configureEach {
+    exclude("androidx.appcompat", "appcompat")
+}
+
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
     kotlinOptions.jvmTarget = JavaVersion.VERSION_11.toString()
 }
@@ -76,8 +98,16 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
 dependencies {
     implementation(libs.core.ktx)
     implementation(libs.appcompat)
+    implementation(libs.preference)
+    implementation(libs.color.picker.preference)
     implementation(libs.material)
     implementation(libs.constraintlayout)
+    implementation(libs.rikka.appcompat)
+    implementation(libs.rikka.core.ktx)
+    implementation(libs.rikka.compatibility)
+    implementation(libs.rikka.material)
+    implementation(libs.rikka.material.preference)
+    implementation(libs.rikka.preference.simplemenu)
 
     compileOnly(libs.xposed.api)
     implementation(libs.yukihookapi)

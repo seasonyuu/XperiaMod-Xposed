@@ -1,14 +1,14 @@
 package me.seasonyuu.xperiatools
 
 import android.os.Build
-import android.provider.Settings
-import android.util.Log
 import androidx.annotation.RequiresApi
 import com.highcapable.yukihookapi.BuildConfig
 import com.highcapable.yukihookapi.annotation.xposed.InjectYukiHookWithXposed
 import com.highcapable.yukihookapi.hook.factory.configs
 import com.highcapable.yukihookapi.hook.factory.encase
 import com.highcapable.yukihookapi.hook.xposed.proxy.IYukiHookXposedInit
+import me.seasonyuu.xperiatools.displaybooster.DisplayBoosterHooker
+import me.seasonyuu.xperiatools.netspeed.NetSpeedHooker
 
 @InjectYukiHookWithXposed(isUsingResourcesHook = false)
 object HookEntry : IYukiHookXposedInit {
@@ -21,36 +21,8 @@ object HookEntry : IYukiHookXposedInit {
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onHook() {
         encase {
-            loadApp("com.sonymobile.displaybooster") {
-                findClass("com.sonymobile.displaybooster.FpsModeManager").hook {
-                    this.injectMember {
-                        method {
-                            name { it == "updateFpsMode" }
-                        }.all()
-                        beforeHook {
-                            Log.d("displaybooster", "beforehook")
-                            field {
-                                name { it == "mIsAutoHighRefreshRate" }
-                            }.give()?.let {
-                                Log.d(
-                                    "displaybooster",
-                                    "change mIsAutoHighRefreshRate ${it.getBoolean(this.instance)}"
-                                )
-                                it.setBoolean(this.instance, true)
-                            }
-                            field {
-                                name { it == "mModeLevel" }
-                            }.give()?.let {
-                                it.setInt(this.instance, 0)
-                                Log.d(
-                                    "displaybooster",
-                                    "change mModeLevel ${it.getInt(this.instance)}"
-                                )
-                            }
-                        }
-                    }
-                }
-            }
+            loadApp(DisplayBoosterHooker.HOOK_PACKAGE, DisplayBoosterHooker)
+            loadApp(NetSpeedHooker.HOOK_PACKAGE, NetSpeedHooker)
         }
     }
 }

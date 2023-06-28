@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Xperia Mod</string>
+    <string name="app_description">Xperia UI 模块</string>
+    <string name="status_bar_net_speed">状态栏网速</string>
+    <string name="pref_category_ind_settings">显示设置</string>
+    <string name="pref_category_ind_appearance">外观设置</string>
+    <string name="pref_category_unit_settings">单位设置</string>
+    <string name="pref_category_text_appearance">字体设置</string>
+    <string name="pref_category_help">帮助</string>
+    <string name="pref_unit_mode">单位进制</string>
+    <string name="pref_unit">单位</string>
+    <string name="pref_unit_format">单位格式</string>
+    <string name="pref_hide_below">显示阈值</string>
+    <string name="dmsg_hide_below">网络速度低于阈值时隐藏。“0”表示一直显示流量计，“1”表示不活动时自动隐藏流量计</string>
+    <string name="hint_hide_below">单位：byte/秒</string>
+    <string name="sum0_hide_below">一直显示</string>
+    <string name="sum1_hide_below">不活动时隐藏</string>
+    <string name="unit_hide_below">当前流量低于 %sB/s 时隐藏</string> <!-- see note -->
+    <string name="pref_show_suffix">一直显示后缀</string>
+    <string name="pref_networktype">网络模式</string>
+    <string name="pref_networkspeed">传输模式</string>
+    <string name="pref_font_size">字体大小</string>
+    <string name="hint_font_size">像素</string>
+    <string name="unit_font_size">%s sp</string> <!-- see note -->
+    <string name="module_active">模块已启用</string>
+    <string name="module_inactive">模块未启用</string>
+    <string name="pref_position">位置</string>
+    <string name="pref_suffix">图标</string>
+    <string name="pref_display">行数</string>
+    <string name="pref_swap_speeds">交换上传下载位置</string>
+    <string name="pref_update_interval">更新频率</string>
+    <string name="hint_update_interval">毫秒</string>
+    <string name="unit_update_interval">%s ms</string> <!-- see note -->
+    <string name="pref_font_color">颜色</string>
+    <string name="pref_font_style">样式</string>
+    <string name="pref_enable_logging">记录日志</string>
+    <string name="pref_report_issue">回报问题</string>
+
+    <string name="note_clear_data">提示：遇到问题可先尝试清除应用数据。</string>
+    <string name="unit_format_hidden">隐藏</string>
+    <string name="unit_format_fmt_as">格式为</string>
+    <string name="summary_none">不显示</string>
+    <string name="item_auto">自动</string>
+    <!-- Note about units:
+         The placeholder %s will be replaced with the actual numeric value.
+         If it is omitted, the provided unit will be appended
+         at the end of numeric value (for example: 500 ms)
+      -->
+
+    <!-- Color Picker -->
+    <string name="dialog_color_picker">选择颜色</string>
+    <string name="press_color_to_apply">选择一种颜色并应用</string>
+
+    <string-array name="unit_mode_entries">
+        <item>二进制比特 (bits)</item>
+        <item>二进制字节 (bytes)</item>
+        <item>十进制比特 (bits)</item>
+        <item>十进制字节 (bytes)</item>
+    </string-array>
+
+    <string-array name="unit_format_entries">
+        <item>数字后空格</item>
+        <item>流量 (K、M)</item>
+        <item>二进制模式 (i)</item>
+        <item>字节或比特 (Bytes/bits)</item>
+        <item>每 (p、/)</item><!-- can be translated as "Every (p,/)" -->
+        <item>秒 (s)</item>
+    </string-array>
+
+    <string-array name="networktype_entries">
+        <item>移动网络</item>
+        <item>无线网络</item>
+        <item>WiMAX</item>
+        <item>蓝牙</item>
+        <item>以太网</item>
+        <item>无线网络直连</item>
+    </string-array>
+
+    <string-array name="networkspeed_entries">
+        <item>上传</item>
+        <item>下载</item>
+    </string-array>
+
+    <string-array name="position_entries">
+        <item>左侧</item>
+        <item>右侧</item>
+    </string-array>
+
+    <string-array name="suffix_entries">
+        <item>不显示</item>
+        <item>实心三角 ▲ ▼</item>
+        <item>空心三角 △ ▽</item>
+        <item>小实心三角 ▴ ▾</item>
+        <item>小空心三角 ▵ ▿</item>
+        <item>箭头 ↑ ↓</item>
+        <item>空心箭头 ⇧ ⇩</item>
+    </string-array>
+
+    <string-array name="display_entries">
+        <item>双行</item>
+        <item>单行</item>
+    </string-array>
+
+    <string-array name="font_style_entries">
+        <item>粗体</item>
+        <item>斜体</item>
+    </string-array>
+    <string name="pref_hide_launcher_icon_title">隐藏桌面图标</string>
+    <string name="pref_hide_launcher_icon_summary">桌面可能需要重新启动</string>
+    <string name="pref_min_unit_title">最小单位</string>
+    <string name="pref_min_unit_summary">当网速小于最小单位时，显示为0</string>
+    <string name="others">其他</string>
+    <string name="pref_get_speed_way">网速获取方式</string>
+    <string name="speed_way_old">经典方式</string>
+    <string name="speed_way_gravity_box">重力工具箱方式</string>
+    <string name="unit_pixel">单位：px</string>
+    <string name="min_width_summary">设定最小宽度可能修复某些 ROM 上可能出现的宽度计算问题</string>
+    <string name="min_width">最小宽度</string>
+    <string name="min_width_dialog_message">默认最小宽度为 0px，此时不会进行任何改动</string>
+    <string name="min_width_px_summary">最小宽度为 %s px</string>
+    <string name="status_bar_icon_mode">状态栏图标模式</string>
+    <string name="light_status_bar">亮色状态栏</string>
+    <string name="low_profile">Low Profile</string>
+    <string name="prevent_font_alpha_changing">阻止文本透明度变化</string>
+    <string name="restart_system_ui">重启系统界面</string>
+    <string-array name="hook_ways">
+        <item>自动检测</item>
+        <item>氢 OS 1.2</item>
+        <item>氢 OS 1.4</item>
+        <item>氢 OS 2.5</item>
+        <item>MIUI 8</item>
+        <item>Android 原生 8.0</item>
+        <item>Android 原生 13.0</item>
+    </string-array>
+    <string name="enable_xposed_settings">目前仅支持解锁帧率限制，暂无设置项。请在 Xposed/LSPosed 管理器中启用此模块。</string>
+    <string name="unlock_fps_limit">解锁帧率限制</string>
+</resources>

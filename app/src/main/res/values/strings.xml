@@ -1,9 +1,133 @@
 <resources>
     <string name="app_name">Xperia Mod</string>
-    <string name="app_description">Xperia UI 模块</string>
+    <string name="app_description">Xperia UI mod</string>
     <string-array name="module_scope">
         <item>com.sonymobile.displaybooster</item>
+        <item>com.android.systemui</item>
     </string-array>
-    <string name="enable_xposed_settings">目前仅支持解锁帧率限制，暂无设置项。请在 Xposed/LSPosed 管理器中启用此模块。</string>
-    <string name="nothing_here">暂无设置</string>
+    <string name="enable_xposed_settings">Used to unlock FPS limit. Please enable this module in your Xposed/LSPosed manager.</string>
+    <string name="restart_system_ui">Restart System UI</string>
+
+    <string name="status_bar_net_speed">Status bar Net speed</string>
+    <string name="pref_category_ind_settings">Indicator settings</string>
+    <string name="pref_category_ind_appearance">Indicator appearance</string>
+    <string name="pref_category_unit_settings">Unit settings</string>
+    <string name="pref_category_text_appearance">Text appearance</string>
+    <string name="pref_category_help">Help</string>
+    <string name="pref_unit_mode">Unit mode</string>
+    <string name="pref_unit">Unit</string>
+    <string name="pref_unit_format">Display and format</string>
+    <string name="pref_hide_below">Display threshold</string>
+    <string name="dmsg_hide_below">Speeds less than this value will not be shown. Enter 0 to always show speed or 1 to hide when speed is zero.</string>
+    <string name="hint_hide_below">bytes per sec</string>
+    <string name="sum0_hide_below">Always show speeds</string>
+    <string name="sum1_hide_below">Hide when speed is zero</string>
+    <string name="unit_hide_below">Hide speeds below %s B/s</string> <!-- see note -->
+    <string name="pref_show_suffix">Always show suffix</string>
+    <string name="pref_networktype">Network types</string>
+    <string name="pref_networkspeed">Network speeds</string>
+    <string name="pref_font_size">Font size</string>
+    <string name="hint_font_size">scaled pixels</string>
+    <string name="unit_font_size">%s sp</string> <!-- see note -->
+    <string name="pref_suffix">Suffix</string>
+    <string name="pref_display">Display</string>
+    <string name="pref_swap_speeds">Swap speed positions</string>
+    <string name="pref_update_interval">Update interval</string>
+    <string name="hint_update_interval">milliseconds</string>
+    <string name="unit_update_interval">%s ms</string> <!-- see note -->
+    <string name="pref_font_color">Font color</string>
+    <string name="unit_font_color" translatable="false">%s (ARGB)</string> <!-- see note -->
+    <string name="pref_font_style">Font style</string>
+    <string name="pref_enable_logging">Enable logging</string>
+    <string name="pref_report_issue">Report an issue</string>
+    <string name="note_clear_data">Note: Try \"Clear data\" first.</string> <!-- ensure " is escaped correctly as \" -->
+    <string name="unit_format_hidden">Hidden</string>
+    <string name="unit_format_fmt_as">Formatted as</string>
+    <string name="summary_none">None</string>
+    <string name="item_auto">Auto</string>
+    <!--
+         Note about units:
+         The placeholder %s will be replaced with the actual numeric value.
+         If it is omitted, the provided unit will be appended
+         at the end of numeric value (for example: 500 ms)
+    -->
+
+
+    <!-- Color Picker -->
+    <string name="dialog_color_picker">Pick a color</string>
+    <string name="press_color_to_apply">Tap on a color to apply</string>
+
+    <string-array name="unit_mode_entries">
+        <item>Binary bits</item>
+        <item>Binary bytes</item>
+        <item>Decimal bits</item>
+        <item>Decimal bytes</item>
+    </string-array>
+    <string-array name="unit_format_entries">
+        <item>Space prefix</item>
+        <item>Factor (K,M)</item>
+        <item>Binary mode (i)</item>
+        <item>Bytes or bits</item>
+        <item>Per (p,/)</item> <!-- can be translated as "Every (p,/)" -->
+        <item>Second (s)</item>
+    </string-array>
+    <string-array name="networktype_entries">
+        <item>Mobile</item>
+        <item>Wi-Fi</item>
+        <item>WiMAX</item>
+        <item>Bluetooth</item>
+        <item>Ethernet</item>
+        <item>Wi-Fi Direct</item>
+    </string-array>
+    <string-array name="networkspeed_entries">
+        <item>Upload</item>
+        <item>Download</item>
+    </string-array>
+    <string-array name="suffix_entries">
+        <item>None</item>
+        <item>Solid triangle ▲ ▼</item>
+        <item>Hollow triangle △ ▽</item>
+        <item>Small solid triangle ▴ ▾</item>
+        <item>Small hollow triangle ▵ ▿</item>
+        <item>Arrow ↑ ↓</item>
+        <item>Arrow hollow ⇧ ⇩</item>
+    </string-array>
+    <string-array name="display_entries">
+        <item>Two lines</item>
+        <item>One line</item>
+    </string-array>
+    <string-array name="font_style_entries">
+        <item>Bold</item>
+        <item>Italic</item>
+    </string-array>
+    <string name="pref_hide_launcher_icon_title">Hide launcher icon</string>
+    <string name="pref_hide_launcher_icon_summary">May require launcher restart</string>
+    <string name="pref_min_unit_title">Minimum unit</string>
+    <string name="pref_min_unit_summary">For example, when setting "KB/s" and the speed is lower than 1KB/s, it will display as 0KB/s</string>
+    <string name="others">Others</string>
+    <string name="pref_get_speed_way">Way of getting network speed</string>
+    <string-array name="speed_way_entries">
+        <item>@string/speed_way_gravity_box</item>
+        <item>@string/speed_way_old</item>
+    </string-array>
+    <string name="speed_way_old">Legacy way</string>
+    <string name="speed_way_gravity_box">GravityBox way</string>
+    <string name="min_width">Minimum width</string>
+    <string name="min_width_summary">Set a minimum width for TextView would fix some measure bugs</string>
+    <string name="unit_pixel">Unit: px</string>
+    <string name="min_width_dialog_message">default minimum width is 0px, and it wouldn\'t do anything on the view</string>
+    <string name="min_width_px_summary">Minimum width is %s px</string>
+
+    <!-- StatusBar mode activity -->
+    <string name="status_bar_icon_mode">Status Bar Icon Mode</string>
+    <string name="light_status_bar">Light Status Bar</string>
+    <string name="low_profile">Low Profile</string>
+    <string name="prevent_font_alpha_changing">Prevent font alpha changing</string>
+
+    <string name="url_report_issue" translatable="false">https://github.com/seasonyuu/XperiaMod-Xposed/issues</string>
+    <string name="unlock_fps_limit">Unlock FPS limit</string>
+    <string name="module_active">Module activated</string>
+    <string name="module_inactive">Module not activated</string>
+    <string name="version_format" translatable="false">%s (%d)</string>
+    <string name="pref_position">Position</string>
 </resources>

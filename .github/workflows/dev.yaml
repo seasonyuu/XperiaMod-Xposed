@@ -10,16 +10,22 @@ jobs:
     runs-on: ubuntu-22.04
     name: Build
     steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+      - uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: 17
+      - uses: gradle/gradle-build-action@v2
+        with:
+          gradle-home-cache-cleanup: true
       - name: Pre-build
         run: echo ${{ secrets.LOCAL_PROPERTIES }} >> local.properties
-      - name: Build
-        uses: sparkfabrik/android-build-action@v1.5.0
-        with:
-          project-path: .
-          output-path: ./Xperia-Mod-${{ github.sha }}.apk
+      - name: Build debug APK
+        run: ./gradlew assembleDebug
       - name: Upload
         uses: actions/upload-artifact@v3
         with:
-          name: DebugAPK
-          path: ./Xperia-Mod-${{ github.sha }}.apk
+          name: Debug APK
+          path: build/outputs/apk/debug/*.apk
           

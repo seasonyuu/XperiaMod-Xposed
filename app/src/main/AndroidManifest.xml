@@ -2,7 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -29,14 +33,20 @@
 
         <activity
             android:name="me.seasonyuu.xperiatools.MainActivity"
-            android:exported="true"
-            android:label="@string/app_name">
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".netspeed.SettingsActivity"
+            android:label="@string/status_bar_net_speed" />
+        <activity
+            android:name=".netspeed.StatusBarIconModeActivity"
+            android:label="@string/status_bar_icon_mode"
+            android:theme="@style/AppTheme.SbIconMode" />
     </application>
 
 </manifest>

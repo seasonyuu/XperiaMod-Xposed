@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:enabled="false"
+    android:key="container">
+    <rikka.material.preference.MaterialSwitchPreference
+        android:key="displaybooster_enabled"
+        android:title="@string/unlock_fps_limit" />
+    <PreferenceScreen
+        android:title="@string/status_bar_net_speed"
+        app:iconSpaceReserved="false">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetClass="me.seasonyuu.xperiatools.netspeed.SettingsActivity"
+            android:targetPackage="me.seasonyuu.xperiatools">
+
+        </intent>
+    </PreferenceScreen>
+    <Preference
+        android:key="restart_system_ui"
+        android:title="@string/restart_system_ui" />
+
+</PreferenceScreen>

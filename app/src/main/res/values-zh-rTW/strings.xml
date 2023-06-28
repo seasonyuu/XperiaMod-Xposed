@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Xperia Mod</string>
+    <string name="app_description">Xperia UI 模块</string>
+    <string name="status_bar_net_speed">狀態列網速</string>
+    <string name="pref_category_ind_settings">顯示器設定</string>
+    <string name="pref_category_ind_appearance">顯示器外觀</string>
+    <string name="pref_category_unit_settings">單位設定</string>
+    <string name="pref_category_text_appearance">字體外觀</string>
+    <string name="pref_category_help">幫助</string>
+    <string name="pref_unit_mode">單位模式</string>
+    <string name="pref_unit">單位</string>
+    <string name="pref_unit_format">顯示與格式</string>
+    <string name="pref_hide_below">顯示上限</string>
+    <string name="dmsg_hide_below">網路速度在此單位以下不會顯示。輸入0會永遠顯示網速，輸入1會在網速為0的時候隱藏顯示器</string>
+    <string name="hint_hide_below">每秒幾的byte</string>
+    <string name="sum0_hide_below">永遠顯示網速</string>
+    <string name="sum1_hide_below">在網速為0時隱藏</string>
+    <string name="unit_hide_below">在網速為 %s B/s 以下時隱藏</string> <!-- see note -->
+    <string name="pref_show_suffix">永遠顯示後綴</string>
+    <string name="pref_networktype">連網模式</string>
+    <string name="pref_networkspeed">網路速度</string>
+    <string name="pref_font_size">字體大小</string>
+    <string name="hint_font_size">scaled pixels</string>
+    <string name="unit_font_size">%s sp</string> <!-- see note -->
+    <string name="module_active">模組已啟用</string>
+    <string name="module_inactive">模組未啟用</string>
+    <string name="pref_position">位置</string>
+    <string name="pref_suffix">後綴</string>
+    <string name="pref_display">顯示</string>
+    <string name="pref_update_interval">更新間隔</string>
+    <string name="hint_update_interval">毫秒</string>
+    <string name="unit_update_interval">%s ms</string> <!-- see note -->
+    <string name="pref_font_color">字體顏色</string>
+    <string name="pref_font_style">字體樣式</string>
+    <string name="pref_enable_logging">開啟日誌</string>
+    <string name="pref_report_issue">回報問題</string>
+    <string name="note_clear_data">提示：遇到問題可先嘗試清除應用數據。</string>
+    <string name="unit_format_hidden">隱藏</string>
+    <string name="unit_format_fmt_as">格式化為</string>
+    <string name="summary_none">不顯示</string>
+    <string name="item_auto">自動</string>
+    <!--
+         Note about units:
+         The placeholder %s will be replaced with the actual numeric value.
+         If it is omitted, the provided unit will be appended
+         at the end of numeric value (for example: 500 ms)
+    -->
+
+
+    <!-- Color Picker -->
+    <string name="dialog_color_picker">選擇一個顏色</string>
+    <string name="press_color_to_apply">選擇一個顏色並套用</string>
+
+    <string-array name="unit_mode_entries">
+        <item>二進位 bits</item>
+        <item>二進位 bytes</item>
+        <item>十進位 bits</item>
+        <item>十進位 bytes</item>
+    </string-array>
+    <string-array name="unit_format_entries">
+        <item>Space prefix</item>
+        <item>Factor (K,M)</item>
+        <item>Binary mode (i)</item>
+        <item>Bytes or bits</item>
+        <item>Per (p,/)</item> <!-- can be translated as "Every (p,/)" -->
+        <item>Second (s)</item>
+    </string-array>
+    <string-array name="networktype_entries">
+        <item>行動數據</item>
+        <item>Wi-Fi</item>
+        <item>WiMAX</item>
+        <item>藍牙</item>
+        <item>Ethernet</item>
+        <item>Wi-Fi Direct</item>
+    </string-array>
+    <string-array name="networkspeed_entries">
+        <item>上傳</item>
+        <item>下載</item>
+    </string-array>
+    <string-array name="position_entries">
+        <item>左邊</item>
+        <item>右邊</item>
+    </string-array>
+    <string-array name="suffix_entries">
+        <item>不顯示</item>
+        <item>實心三角 ▲ ▼</item>
+        <item>空心三角 △ ▽</item>
+        <item>小實心三角 ▴ ▾</item>
+        <item>小空心三角 ▵ ▿</item>
+        <item>箭頭 ↑ ↓</item>
+        <item>空心箭頭 ⇧ ⇩</item>
+    </string-array>
+    <string-array name="display_entries">
+        <item>雙行</item>
+        <item>單行</item>
+    </string-array>
+    <string-array name="font_style_entries">
+        <item>粗體</item>
+        <item>斜體</item>
+    </string-array>
+    <string name="pref_swap_speeds">交換上載下載位置</string>
+    <string name="pref_hide_launcher_icon_title">隱藏啟動器圖示</string>
+    <string name="pref_hide_launcher_icon_summary">可能需要重新啟動啟動器才能生效</string>
+    <string name="pref_min_unit_title">最小單位</string>
+    <string name="pref_min_unit_summary">當網路速度小於最小單位時，顯示為0</string>
+    <string name="others">其他</string>
+    <string name="pref_get_speed_way">網路速度獲取模式</string>
+    <string name="speed_way_old">經典模式</string>
+    <string name="speed_way_gravity_box">GravityBox 模式</string>
+    <string name="min_width">最小寬度</string>
+    <string name="min_width_summary">設定最小寬度可能修復某些 ROM 上的寬度計算問題</string>
+    <string name="unit_pixel">單位：px</string>
+    <string name="min_width_dialog_message">預設最小寬度為 0px，此時不會進行任何改動</string>
+    <string name="min_width_px_summary">最小寬度為 %s px</string>
+    <string name="status_bar_icon_mode">Status Bar Icon Mode</string>
+    <string name="light_status_bar">Light Status Bar</string>
+    <string name="low_profile">Low Profile</string>
+    <string name="prevent_font_alpha_changing">阻止文本透明度變化</string>
+    <string name="restart_system_ui">重啓系統界面</string>
+    <string name="enable_xposed_settings">目前仅支持解锁帧率限制，暂无设置项。请在 Xposed/LSPosed 管理器中启用此模块。</string>
+    <string name="unlock_fps_limit">解鎖幀率限制</string>
+
+</resources>

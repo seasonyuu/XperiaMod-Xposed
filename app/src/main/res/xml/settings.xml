@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:key="settings">
+
+    <PreferenceCategory android:title="@string/pref_category_ind_settings">
+        <EditTextPreference
+            android:hint="@string/hint_update_interval"
+            android:inputType="number"
+            android:key="update_interval"
+            android:title="@string/pref_update_interval" />
+
+        <androidx.preference.MultiSelectListPreference
+            android:defaultValue="@array/networktype_defaults"
+            android:entries="@array/networktype_entries"
+            android:entryValues="@array/networktype_values"
+            android:key="network_type"
+            android:title="@string/pref_networktype"
+            app:iconSpaceReserved="false" />
+
+        <androidx.preference.MultiSelectListPreference
+            android:defaultValue="@array/networkspeed_values"
+            android:entries="@array/networkspeed_entries"
+            android:entryValues="@array/networkspeed_values"
+            android:key="network_speed"
+            android:title="@string/pref_networkspeed"
+            app:iconSpaceReserved="false" />
+
+        <EditTextPreference
+            android:dialogMessage="@string/dmsg_hide_below"
+            android:hint="@string/hint_hide_below"
+            android:inputType="number"
+            android:key="hide_below"
+            android:title="@string/pref_hide_below" />
+
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/pref_category_ind_appearance">
+        <rikka.preference.SimpleMenuPreference
+            android:defaultValue="0"
+            android:entries="@array/display_entries"
+            android:entryValues="@array/display_values"
+            android:key="display"
+            android:title="@string/pref_display" />
+
+        <rikka.material.preference.MaterialSwitchPreference
+            android:defaultValue="0"
+            android:key="swap_speeds"
+            android:title="@string/pref_swap_speeds" />
+
+        <rikka.preference.SimpleMenuPreference
+            android:defaultValue="1"
+            android:entries="@array/suffix_entries"
+            android:entryValues="@array/suffix_values"
+            android:key="suffix"
+            android:title="@string/pref_suffix" />
+
+        <rikka.material.preference.MaterialSwitchPreference
+            android:defaultValue="0"
+            android:key="show_suffix"
+            android:title="@string/pref_show_suffix" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/pref_category_unit_settings">
+        <rikka.preference.SimpleMenuPreference
+            android:defaultValue="3"
+            android:entries="@array/unit_mode_entries"
+            android:entryValues="@array/unit_mode_values"
+            android:key="unit_mode"
+            android:title="@string/pref_unit_mode" />
+        <rikka.preference.SimpleMenuPreference
+            android:defaultValue="0"
+            android:entries="@array/unit_entries_decimal_bytes"
+            android:entryValues="@array/unit_values"
+            android:key="force_unit"
+            android:title="@string/pref_unit" />
+        <rikka.preference.SimpleMenuPreference
+            android:defaultValue="0"
+            android:entries="@array/unit_entries_decimal_bytes"
+            android:entryValues="@array/unit_values"
+            android:key="min_unit"
+            android:title="@string/pref_min_unit_title" />
+
+        <androidx.preference.MultiSelectListPreference
+            android:defaultValue="@array/unit_format_defaults"
+            android:entries="@array/unit_format_entries"
+            android:entryValues="@array/unit_format_values"
+            android:key="unit_format"
+            android:title="@string/pref_unit_format"
+            app:iconSpaceReserved="false" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/pref_category_text_appearance">
+        <EditTextPreference
+            android:hint="@string/hint_font_size"
+            android:inputType="numberDecimal"
+            android:key="font_size"
+            android:title="@string/pref_font_size" />
+
+        <androidx.preference.MultiSelectListPreference
+            android:defaultValue="@array/empty_array"
+            android:entries="@array/font_style_entries"
+            android:entryValues="@array/font_style_values"
+            android:key="font_style"
+            android:title="@string/pref_font_style"
+            app:iconSpaceReserved="false" />
+
+        <rikka.material.preference.MaterialSwitchPreference
+            android:defaultValue="false"
+            android:key="font_color"
+            android:title="@string/pref_font_color" />
+
+        <com.skydoves.colorpickerpreference.ColorPickerPreference
+            android:defaultValue="@android:color/white"
+            android:dependency="font_color"
+            android:key="color"
+            android:title="@string/dialog_color_picker"
+            app:preference_attachAlphaSlideBar="true"
+            app:preference_dialog_negative="@android:string/cancel"
+            app:preference_dialog_positive="@android:string/ok" />
+
+        <rikka.material.preference.MaterialSwitchPreference
+            android:defaultValue="false"
+            android:key="prevent_font_alpha_changing"
+            android:title="@string/prevent_font_alpha_changing" />
+
+        <EditTextPreference
+            android:dialogMessage="@string/min_width_dialog_message"
+            android:hint="@string/unit_pixel"
+            android:inputType="number"
+            android:key="min_width"
+            android:summary="@string/min_width_summary"
+            android:title="@string/min_width" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/others">
+        <rikka.preference.SimpleMenuPreference
+            android:defaultValue="0"
+            android:entries="@array/speed_way_entries"
+            android:entryValues="@array/speed_way_value"
+            android:key="get_speed_way"
+            android:title="@string/pref_get_speed_way" />
+
+        <Preference
+            android:key="status_bar_icon_mode"
+            android:title="@string/status_bar_icon_mode" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/pref_category_help">
+        <rikka.material.preference.MaterialSwitchPreference
+            android:defaultValue="false"
+            android:key="enable_logging_beta"
+            android:title="@string/pref_enable_logging" />
+
+        <PreferenceScreen
+            android:summary="@string/note_clear_data"
+            android:title="@string/pref_report_issue"
+            app:iconSpaceReserved="false">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="@string/url_report_issue" />
+        </PreferenceScreen>
+    </PreferenceCategory>
+
+</PreferenceScreen>
