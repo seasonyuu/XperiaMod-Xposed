@@ -1,15 +1,22 @@
 package me.seasonyuu.xperiatools
 
+import android.content.Context
+import android.content.Intent
+import android.content.SharedPreferences
 import android.content.res.ColorStateList
 import android.content.res.Resources
 import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.edit
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceScreen
 import com.google.android.material.color.MaterialColors
+import com.google.android.material.snackbar.Snackbar
 import me.seasonyuu.xperiatools.databinding.ActivityMainBinding
+import me.seasonyuu.xperiatools.displaybooster.DisplayBoosterHooker
+import me.seasonyuu.xperiatools.netspeed.SettingsActivity
 import me.seasonyuu.xperiatools.utils.Utils
 import rikka.material.app.MaterialActivity
 
@@ -19,6 +26,14 @@ class MainActivity : MaterialActivity() {
     override fun onApplyUserThemeResource(theme: Resources.Theme, isDecorView: Boolean) {
         super.onApplyUserThemeResource(theme, isDecorView)
         theme.applyStyle(R.style.AppThemeOverlay_Preference, true)
+    }
+
+    private fun getPreference(): SharedPreferences? {
+        return try {
+            getSharedPreferences("${packageName}_preferences", Context.MODE_WORLD_READABLE)
+        } catch (e: Exception) {
+            null
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,9 +51,36 @@ class MainActivity : MaterialActivity() {
         binding.moduleVersion.text =
             getString(R.string.version_format, BuildConfig.VERSION_NAME, BuildConfig.VERSION_CODE)
 
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_main, MainFragment())
-            .commit()
+        binding.itemUnlockFps.setOnClickListener {
+            if (Utils.isModuleActivated()) {
+                binding.switchUnlockFps.isChecked = !binding.switchUnlockFps.isChecked
+            } else {
+                Snackbar.make(binding.root, R.string.module_inactive, Snackbar.LENGTH_SHORT).show()
+            }
+        }
+        getPreference()?.let { sp ->
+            binding.switchUnlockFps.isChecked =
+                sp.getBoolean(DisplayBoosterHooker.PREF_KEY_ENABLED, false)
+        }
+        binding.switchUnlockFps.setOnCheckedChangeListener { _, isChecked ->
+            getPreference()?.let { sp ->
+                sp.edit {
+                    putBoolean(DisplayBoosterHooker.PREF_KEY_ENABLED, isChecked)
+                }
+            } ?: run {
+                Snackbar.make(binding.root, R.string.module_inactive, Snackbar.LENGTH_SHORT).show()
+            }
+        }
+        binding.itemRestartSystemUi.setOnClickListener {
+            Utils.restartSystemUi()
+        }
+        binding.itemNetSpeed.setOnClickListener {
+            if (Utils.isModuleActivated()) {
+                startActivity(Intent(this, SettingsActivity::class.java))
+            } else {
+                Snackbar.make(binding.root, R.string.module_inactive, Snackbar.LENGTH_SHORT).show()
+            }
+        }
     }
 
     private fun setActivateUi(isActive: Boolean) {
@@ -75,19 +117,4 @@ class MainActivity : MaterialActivity() {
             Color.argb(50, Color.red(colorOn), Color.green(colorOn), Color.blue(colorOn))
         )
     }
-}
-
-class MainFragment : PreferenceFragmentCompat() {
-    override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
-        setPreferencesFromResource(R.xml.main, rootKey)
-
-        val isModuleEnabled = Utils.isModuleActivated()
-        findPreference<PreferenceScreen>("container")?.isEnabled = isModuleEnabled
-
-        findPreference<Preference>("restart_system_ui")?.setOnPreferenceClickListener {
-            Utils.restartSystemUi()
-            true
-        }
-    }
-
 }

@@ -7,7 +7,7 @@ import de.robv.android.xposed.XSharedPreferences
 object DisplayBoosterHooker : YukiBaseHooker() {
     const val HOOK_PACKAGE = "com.sonymobile.displaybooster"
 
-    private const val PREF_KEY_ENABLED = "displaybooster_enabled"
+    const val PREF_KEY_ENABLED = "displaybooster_enabled"
     override fun onHook() {
         findClass("com.sonymobile.displaybooster.FpsModeManager").hook {
             this.injectMember {
