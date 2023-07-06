@@ -8,6 +8,7 @@ import com.highcapable.yukihookapi.hook.factory.configs
 import com.highcapable.yukihookapi.hook.factory.encase
 import com.highcapable.yukihookapi.hook.xposed.proxy.IYukiHookXposedInit
 import me.seasonyuu.xperiatools.displaybooster.DisplayBoosterHooker
+import me.seasonyuu.xperiatools.displaybooster.DisplayHooker
 import me.seasonyuu.xperiatools.netspeed.NetSpeedHooker
 
 @InjectYukiHookWithXposed(isUsingResourcesHook = false)
@@ -23,6 +24,7 @@ object HookEntry : IYukiHookXposedInit {
         encase {
             loadApp(DisplayBoosterHooker.HOOK_PACKAGE, DisplayBoosterHooker)
             loadApp(NetSpeedHooker.HOOK_PACKAGE, NetSpeedHooker)
+            loadSystem(DisplayHooker)
         }
     }
 }

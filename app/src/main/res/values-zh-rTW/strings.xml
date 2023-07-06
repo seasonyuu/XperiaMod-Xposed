@@ -121,5 +121,9 @@
     <string name="restart_system_ui">重啓系統界面</string>
     <string name="enable_xposed_settings">目前仅支持解锁帧率限制，暂无设置项。请在 Xposed/LSPosed 管理器中启用此模块。</string>
     <string name="unlock_fps_limit">解鎖幀率限制</string>
+    <string name="display_settings">顯示設定</string>
+    <string name="display_mode">顯示模式</string>
+    <string name="restore_default">重置</string>
+    <string name="enable_4k">啓用 4K</string>
 
 </resources>

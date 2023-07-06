@@ -136,4 +136,8 @@
     </string-array>
     <string name="enable_xposed_settings">目前仅支持解锁帧率限制，暂无设置项。请在 Xposed/LSPosed 管理器中启用此模块。</string>
     <string name="unlock_fps_limit">解锁帧率限制</string>
+    <string name="display_settings">显示设置</string>
+    <string name="display_mode">显示模式</string>
+    <string name="restore_default">恢复</string>
+    <string name="enable_4k">启用 4K</string>
 </resources>

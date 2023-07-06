@@ -99,32 +99,6 @@
                     android:paddingBottom="8dp">
 
                     <androidx.appcompat.widget.LinearLayoutCompat
-                        android:id="@+id/item_unlock_fps"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="?selectableItemBackground"
-                        android:clickable="true"
-                        android:focusable="true"
-                        android:gravity="center_vertical"
-                        android:minHeight="?listPreferredItemHeightSmall"
-                        android:orientation="horizontal"
-                        android:paddingStart="@dimen/activity_padding"
-                        android:paddingEnd="@dimen/activity_padding">
-
-                        <com.google.android.material.textview.MaterialTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="@string/unlock_fps_limit"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
-
-                        <com.google.android.material.materialswitch.MaterialSwitch
-                            android:id="@+id/switch_unlock_fps"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-                    </androidx.appcompat.widget.LinearLayoutCompat>
-
-                    <androidx.appcompat.widget.LinearLayoutCompat
                         android:id="@+id/item_net_speed"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -141,6 +115,27 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/status_bar_net_speed"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/item_display"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center_vertical"
+                        android:minHeight="?listPreferredItemHeightSmall"
+                        android:orientation="horizontal"
+                        android:paddingStart="@dimen/activity_padding"
+                        android:paddingEnd="@dimen/activity_padding">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/display_settings"
                             android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
 
                     </androidx.appcompat.widget.LinearLayoutCompat>
@@ -163,6 +158,36 @@
                             android:layout_height="wrap_content"
                             android:text="@string/restart_system_ui"
                             android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/item_report_issue"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center_vertical"
+                        android:minHeight="?listPreferredItemHeightSmall"
+                        android:orientation="vertical"
+                        android:paddingStart="@dimen/activity_padding"
+                        android:paddingTop="8dp"
+                        android:paddingEnd="@dimen/activity_padding"
+                        android:paddingBottom="8dp">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/pref_report_issue"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="monospace"
+                            android:text="@string/url_report_issue"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
 
                     </androidx.appcompat.widget.LinearLayoutCompat>
 

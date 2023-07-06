@@ -41,6 +41,9 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".displaybooster.DisplaySettingsActivity"
+            android:label="@string/display_settings" />
+        <activity
             android:name=".netspeed.SettingsActivity"
             android:label="@string/status_bar_net_speed" />
         <activity

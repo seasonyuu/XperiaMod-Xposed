@@ -4,6 +4,7 @@
     <string-array name="module_scope">
         <item>com.sonymobile.displaybooster</item>
         <item>com.android.systemui</item>
+        <item>android</item>
     </string-array>
     <string name="enable_xposed_settings">Used to unlock FPS limit. Please enable this module in your Xposed/LSPosed manager.</string>
     <string name="restart_system_ui">Restart System UI</string>
@@ -130,4 +131,8 @@
     <string name="module_inactive">Module not activated</string>
     <string name="version_format" translatable="false">%s (%d)</string>
     <string name="pref_position">Position</string>
+    <string name="display_settings">Display settings</string>
+    <string name="display_mode">Display mode</string>
+    <string name="restore_default">Restore default</string>
+    <string name="enable_4k">Enable 4K Mode</string>
 </resources>
