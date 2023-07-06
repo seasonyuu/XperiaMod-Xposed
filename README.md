@@ -16,4 +16,4 @@ Tested devices:
 
 - [x] Unlock FPS limition
 - [x] Network speed indicator in StatusBar
-- [ ] keep 4k screen resolution in every App
+- [x] support enable 4k 120fps display mode
