@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Xperia Mod</string>
-    <string name="app_description">Xperia UI mod</string>
+    <string name="app_description">Xperia UI Tweaks mod only for Sony Xperia Phone.</string>
     <string-array name="module_scope">
         <item>com.sonymobile.displaybooster</item>
         <item>com.android.systemui</item>
@@ -135,4 +135,11 @@
     <string name="display_mode">Display mode</string>
     <string name="restore_default">Restore default</string>
     <string name="enable_4k">Enable 4K Mode</string>
+    <string name="display_mode_message">1. Click \"Enable 4K Mode\"\n2. Click \"Update WM size\" and \"Update WM density\", then WindowManager should update your DisplayContentInfo to 4K</string>
+    <string name="display_mode_4k_60fps" translatable="false">4K 60FPS</string>
+    <string name="display_mode_4k_120fps" translatable="false">4K 120FPS</string>
+    <string name="set_wm_size">Update WM size</string>
+    <string name="set_wm_density">Update WM density</string>
+    <string name="refresh">Refresh</string>
+    <string name="current_display_mode_value">Current display mode: %dx%dpx %gHZ\nRender size: %dx%dpx</string>
 </resources>

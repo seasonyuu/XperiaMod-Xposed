@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">Xperia Mod</string>
-    <string name="app_description">Xperia UI 模块</string>
+    <string name="app_description">Xperia UI 模块，僅支援索尼 Xperia 系列電話</string>
     <string name="status_bar_net_speed">狀態列網速</string>
     <string name="pref_category_ind_settings">顯示器設定</string>
     <string name="pref_category_ind_appearance">顯示器外觀</string>
@@ -125,5 +125,10 @@
     <string name="display_mode">顯示模式</string>
     <string name="restore_default">重置</string>
     <string name="enable_4k">啓用 4K</string>
+    <string name="set_wm_size">更新窗口尺寸</string>
+    <string name="display_mode_message">1. 點擊\"啟用 4K\"\n2. 點擊\"更新窗口尺寸\"和\"更新窗口DPI\"，之後 WindowManager 會更新你的顯示內容用 4K 分辨率來展示</string>
+    <string name="set_wm_density">更新窗口 DPI</string>
+    <string name="refresh">刷新</string>
+    <string name="current_display_mode_value">當前顯示模式: %dx%dpx %gHZ\n渲染尺寸: %dx%dpx</string>
 
 </resources>

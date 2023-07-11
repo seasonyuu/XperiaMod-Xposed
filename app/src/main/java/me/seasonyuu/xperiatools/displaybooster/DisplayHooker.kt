@@ -12,9 +12,6 @@ object DisplayHooker : YukiBaseHooker() {
                     name { it == "setForcedDisplaySize" }
                 }.all()
                 afterHook {
-                    this.args.forEachIndexed { index, arg ->
-                        Log.d("WM_SIZE", "arg#$index: $arg")
-                    }
                     field {
                         name { it == "mRoot" }
                     }.get(instance).let { mRoot ->
@@ -22,7 +19,6 @@ object DisplayHooker : YukiBaseHooker() {
                         val displayId = args[0] as? Int ?: return@let
                         val width = args[1] as? Int ?: return@let
                         val height = args[2] as? Int ?: return@let
-                        Log.d("WM_SIZE", "mRoot: ${mRoot.current()?.name}")
                         mRoot.current()?.method {
                             name { it == "getDisplayContent" }
                             paramCount(1)

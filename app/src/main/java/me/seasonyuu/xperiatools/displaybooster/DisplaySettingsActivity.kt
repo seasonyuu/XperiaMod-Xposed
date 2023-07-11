@@ -2,13 +2,15 @@ package me.seasonyuu.xperiatools.displaybooster
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import androidx.core.content.edit
 import com.google.android.material.snackbar.Snackbar
 import me.seasonyuu.xperiatools.R
 import me.seasonyuu.xperiatools.databinding.ActivityDisplaySettingsBinding
-import me.seasonyuu.xperiatools.utils.Utils
+import me.seasonyuu.xperiatools.displaybooster.DisplayUtils.Screen4k
 import rikka.material.app.MaterialActivity
 
 class DisplaySettingsActivity : MaterialActivity() {
@@ -42,10 +44,10 @@ class DisplaySettingsActivity : MaterialActivity() {
                 sp.getBoolean(DisplayBoosterHooker.PREF_KEY_ENABLED, false)
         }
         binding.enable4k.setOnClickListener {
-            Utils.enable4kMode()
+            DisplayUtils.enable4kMode()
         }
         binding.restoreDisplayMode.setOnClickListener {
-            Utils.restoreDisplayMode()
+            DisplayUtils.restoreDisplayMode()
         }
         binding.switchUnlockFps.setOnCheckedChangeListener { _, isChecked ->
             getPreference()?.let { sp ->
@@ -54,6 +56,39 @@ class DisplaySettingsActivity : MaterialActivity() {
                 }
             } ?: run {
                 Snackbar.make(binding.root, R.string.module_inactive, Snackbar.LENGTH_SHORT).show()
+            }
+        }
+        binding.refreshDisplayMode.setOnClickListener {
+            updateDisplayMode()
+        }
+        binding.setWmDensity.setOnClickListener {
+            DisplayUtils.setWmDensity()
+        }
+        binding.setWmSize.setOnClickListener {
+            DisplayUtils.setWmSize(Screen4k.width(), Screen4k.height())
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        updateDisplayMode()
+    }
+
+    private fun updateDisplayMode() {
+        binding.root.post {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                val bounds = windowManager.currentWindowMetrics.bounds
+                display?.mode?.let {
+                    binding.tvCurrentDisplayMode.text = getString(
+                        R.string.current_display_mode_value,
+                        it.physicalWidth,
+                        it.physicalHeight,
+                        it.refreshRate,
+                        bounds.width(),
+                        bounds.height()
+                    )
+                }
             }
         }
     }
