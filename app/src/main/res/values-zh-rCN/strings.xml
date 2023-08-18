@@ -145,4 +145,6 @@
     <string name="set_wm_density">更新窗口 DPI</string>
     <string name="refresh">刷新</string>
     <string name="current_display_mode_value">当前显示模式: %dx%dpx %gHZ\n渲染尺寸: %dx%dpx</string>
+    <string name="enable">启用</string>
+    <string name="require_restart_system_ui">请重启系统界面</string>
 </resources>

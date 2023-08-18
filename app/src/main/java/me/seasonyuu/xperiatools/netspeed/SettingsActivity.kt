@@ -1,18 +1,15 @@
 package me.seasonyuu.xperiatools.netspeed
 
-import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener
-import android.content.pm.PackageManager
 import android.content.res.Configuration
 import android.content.res.Resources
 import android.net.ConnectivityManager
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import androidx.preference.EditTextPreference
 import androidx.preference.ListPreference
@@ -20,11 +17,13 @@ import androidx.preference.MultiSelectListPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceGroup
+import androidx.preference.SwitchPreferenceCompat
+import com.google.android.material.snackbar.Snackbar
 import com.skydoves.colorpickerpreference.ColorPickerPreference
 import me.seasonyuu.xperiatools.R
 import me.seasonyuu.xperiatools.databinding.ActivitySettingsBinding
+import me.seasonyuu.xperiatools.netspeed.Common.KEY_ENABLE_NETSPEED_INDICATOR
 import rikka.material.app.MaterialActivity
-import rikka.preference.SimpleMenuPreference
 import java.util.TreeMap
 
 
@@ -84,7 +83,7 @@ class SettingsFragment : PreferenceFragmentCompat(), OnSharedPreferenceChangeLis
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.settings, rootKey)
- 
+
         preferenceManager.sharedPreferencesMode = Context.MODE_WORLD_READABLE
 
         refreshNetworkTypes()
@@ -454,6 +453,15 @@ class SettingsFragment : PreferenceFragmentCompat(), OnSharedPreferenceChangeLis
         findPreference<Preference>("status_bar_icon_mode")?.onPreferenceClickListener =
             Preference.OnPreferenceClickListener {
                 startActivity(Intent(requireContext(), StatusBarIconModeActivity::class.java))
+                true
+            }
+        findPreference<SwitchPreferenceCompat>(KEY_ENABLE_NETSPEED_INDICATOR)
+            ?.setOnPreferenceChangeListener { _, _ ->
+                Snackbar.make(
+                    requireView(),
+                    R.string.require_restart_system_ui,
+                    Snackbar.LENGTH_SHORT
+                ).show()
                 true
             }
     }

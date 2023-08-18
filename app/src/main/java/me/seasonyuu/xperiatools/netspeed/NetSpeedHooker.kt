@@ -4,6 +4,7 @@ import android.view.Gravity
 import android.view.View
 import android.widget.TextView
 import com.highcapable.yukihookapi.hook.entity.YukiBaseHooker
+import me.seasonyuu.xperiatools.netspeed.Common.KEY_ENABLE_NETSPEED_INDICATOR
 
 object NetSpeedHooker : YukiBaseHooker() {
     const val HOOK_PACKAGE = "com.android.systemui"
@@ -23,6 +24,7 @@ object NetSpeedHooker : YukiBaseHooker() {
                     }
                 }.all()
                 afterHook {
+                    if (!prefs.getBoolean(KEY_ENABLE_NETSPEED_INDICATOR, false)) return@afterHook
                     val view = mTrafficView ?: return@afterHook
                     (args[0] as? Int)?.let { appearance ->
                         if (appearance and APPEARANCE_LOW_PROFILE_BARS != 0) {
@@ -41,6 +43,7 @@ object NetSpeedHooker : YukiBaseHooker() {
                         it == "applyIconTint"
                     }
                     afterHook {
+                        if (!prefs.getBoolean(KEY_ENABLE_NETSPEED_INDICATOR, false)) return@afterHook
                         field {
                             name { it == "mIconTint" }
                         }.give()?.getInt(this.instance)?.let { iconTint ->
@@ -61,6 +64,8 @@ object NetSpeedHooker : YukiBaseHooker() {
                     }
                 }.all()
                 afterHook {
+                    if (!prefs.getBoolean(KEY_ENABLE_NETSPEED_INDICATOR, false)) return@afterHook
+
                     (this.instance as? View)?.let { root ->
                         val clock: View? = root.findViewById(
                             root.resources.getIdentifier(
@@ -77,7 +82,7 @@ object NetSpeedHooker : YukiBaseHooker() {
                                 trafficView.iconTint = color
                                 trafficView.refreshColor()
                             }
-                            trafficView.gravity = Gravity.RIGHT or Gravity.CENTER_VERTICAL
+                            trafficView.gravity = Gravity.END or Gravity.CENTER_VERTICAL
 
                             trafficView.mPositionCallback = positionCallback
                             positionCallback.setup(root, trafficView)

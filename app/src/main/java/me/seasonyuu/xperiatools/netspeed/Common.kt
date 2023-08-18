@@ -8,6 +8,7 @@ object Common {
     private val TAG = Common::class.java.simpleName
     private const val PKG_NAME = "me.seasonyuu.xperiatools"
     const val ACTION_SETTINGS_CHANGED = "$PKG_NAME.changed"
+    const val KEY_ENABLE_NETSPEED_INDICATOR = "enable_netspeed_indicator"
     const val KEY_HIDE_BELOW = "hide_below"
     const val KEY_SHOW_SUFFIX = "show_suffix"
     const val KEY_UNIT_MODE = "unit_mode"

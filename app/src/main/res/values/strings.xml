@@ -142,4 +142,6 @@
     <string name="set_wm_density">Update WM density</string>
     <string name="refresh">Refresh</string>
     <string name="current_display_mode_value">Current display mode: %dx%dpx %gHZ\nRender size: %dx%dpx</string>
+    <string name="enable">Enable</string>
+    <string name="require_restart_system_ui">Please restart System UI process.</string>
 </resources>

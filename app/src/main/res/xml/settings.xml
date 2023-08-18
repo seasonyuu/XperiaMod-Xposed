@@ -3,7 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:key="settings">
 
-    <PreferenceCategory android:title="@string/pref_category_ind_settings">
+    <rikka.material.preference.MaterialSwitchPreference
+        android:key="enable_netspeed_indicator"
+        android:title="@string/enable" />
+
+    <PreferenceCategory
+        android:title="@string/pref_category_ind_settings"
+        app:dependency="enable_netspeed_indicator">
         <EditTextPreference
             android:hint="@string/hint_update_interval"
             android:inputType="number"
@@ -34,7 +40,9 @@
             android:title="@string/pref_hide_below" />
 
     </PreferenceCategory>
-    <PreferenceCategory android:title="@string/pref_category_ind_appearance">
+    <PreferenceCategory
+        android:title="@string/pref_category_ind_appearance"
+        app:dependency="enable_netspeed_indicator">
         <rikka.preference.SimpleMenuPreference
             android:defaultValue="0"
             android:entries="@array/display_entries"
@@ -59,7 +67,9 @@
             android:key="show_suffix"
             android:title="@string/pref_show_suffix" />
     </PreferenceCategory>
-    <PreferenceCategory android:title="@string/pref_category_unit_settings">
+    <PreferenceCategory
+        android:title="@string/pref_category_unit_settings"
+        app:dependency="enable_netspeed_indicator">
         <rikka.preference.SimpleMenuPreference
             android:defaultValue="3"
             android:entries="@array/unit_mode_entries"
@@ -87,7 +97,9 @@
             android:title="@string/pref_unit_format"
             app:iconSpaceReserved="false" />
     </PreferenceCategory>
-    <PreferenceCategory android:title="@string/pref_category_text_appearance">
+    <PreferenceCategory
+        android:title="@string/pref_category_text_appearance"
+        app:dependency="enable_netspeed_indicator">
         <EditTextPreference
             android:hint="@string/hint_font_size"
             android:inputType="numberDecimal"
@@ -129,7 +141,9 @@
             android:summary="@string/min_width_summary"
             android:title="@string/min_width" />
     </PreferenceCategory>
-    <PreferenceCategory android:title="@string/others">
+    <PreferenceCategory
+        android:title="@string/others"
+        app:dependency="enable_netspeed_indicator">
         <rikka.preference.SimpleMenuPreference
             android:defaultValue="0"
             android:entries="@array/speed_way_entries"
@@ -140,21 +154,6 @@
         <Preference
             android:key="status_bar_icon_mode"
             android:title="@string/status_bar_icon_mode" />
-    </PreferenceCategory>
-    <PreferenceCategory android:title="@string/pref_category_help">
-        <rikka.material.preference.MaterialSwitchPreference
-            android:defaultValue="false"
-            android:key="enable_logging_beta"
-            android:title="@string/pref_enable_logging" />
-
-        <PreferenceScreen
-            android:summary="@string/note_clear_data"
-            android:title="@string/pref_report_issue"
-            app:iconSpaceReserved="false">
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:data="@string/url_report_issue" />
-        </PreferenceScreen>
     </PreferenceCategory>
 
 </PreferenceScreen>
